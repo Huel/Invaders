@@ -4,6 +4,7 @@ using System.Collections;
 public class GunControl : MonoBehaviour {
 
 	public Camera myCam;
+	public GameController myGameController;
 
 	void Start () 
 	{
@@ -20,6 +21,7 @@ public class GunControl : MonoBehaviour {
 				{
 					Debug.Log("BOOM");
 					Destroy(hit.collider.gameObject);
+					myGameController.score += 100;
 				}
 			}
 		}
