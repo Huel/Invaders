@@ -744,7 +744,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myCam: {fileID: 1239387793}
   myGameController: {fileID: 1442158660}
-  myEnemySpawner: {fileID: 0}
+  myEnemySpawner: {fileID: 26871756}
+  myBullet: {fileID: 100000, guid: 069912efd878b4df9b18ad32a001acb6, type: 2}
 --- !u!1 &1259841204
 GameObject:
   m_ObjectHideFlags: 0

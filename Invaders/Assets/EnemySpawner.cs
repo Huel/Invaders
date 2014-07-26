@@ -40,6 +40,7 @@ public class EnemySpawner : MonoBehaviour {
 			enemyType ++;
 
 			Vector3 startPosition = new Vector3(player.transform.position.x,player.transform.position.y, player.transform.position.z + range);
+			Object enemy;
 
 			switch(enemyType)
 			{
