@@ -10,8 +10,9 @@ public class GameController : MonoBehaviour {
 
 	void Start ()
 	{
+		gameState = 1;
 		score = 0;	
-		health = 10;
+		health = 2;
 	}
 	
 	void Update () 

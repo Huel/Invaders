@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour {
 			myEnemySpawner.enemyCount -=1;
 			Destroy(this.gameObject);
 			Debug.Log("OUCH!");
+
 		}
 	}
 }
