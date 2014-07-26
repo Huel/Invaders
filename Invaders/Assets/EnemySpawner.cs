@@ -29,7 +29,7 @@ public class EnemySpawner : MonoBehaviour {
 		{
 			timerCount = 0;
 			enemyCount ++;
-			Object newEnemy = Instantiate(enemyPrefab,player.transform.position + Random.onUnitSphere * range, new Quaternion(0,0,0,0));
+			Instantiate(enemyPrefab,player.transform.position + Random.onUnitSphere * range, new Quaternion(0,0,0,0));
 		}
 	}
 }

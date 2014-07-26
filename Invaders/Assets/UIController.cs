@@ -1,16 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class UIController : MonoBehaviour {
 	
 	public GameController myGameController;
+	public Text scoreText;
+	public Slider healthSlider;
 
-	void Start () {
+	void Start () 
+	{
 	
 	}
 
-	void OnGui() 
+	void Update ()
 	{
-		GUI.Label(new Rect(Screen.width/2,Screen.height/2,300,300),"Score: "+myGameController.score);
+		scoreText.text = "Score: " + myGameController.score;
+		healthSlider.value = myGameController.health;
 	}
 }
