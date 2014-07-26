@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EnemySpawner : MonoBehaviour {
 
@@ -9,7 +10,7 @@ public class EnemySpawner : MonoBehaviour {
 	public GameObject enemyPrefab;
 	public GameObject player;
 	public int enemyCount;
-
+	public List<GameObject> enemies = new List<GameObject>();
 
 	private float timerCount;
 
@@ -24,12 +25,14 @@ public class EnemySpawner : MonoBehaviour {
 	void Update ()
 	{
 		timerCount += Time.deltaTime;
-		Debug.Log("timerCount: " + timerCount);
-		if (timerCount > spawnRate && enemyCount <= maxCount ) 
+		if (timerCount > spawnRate && enemyCount < maxCount ) 
 		{
 			timerCount = 0;
 			enemyCount ++;
-			Instantiate(enemyPrefab,player.transform.position + Random.onUnitSphere * range, new Quaternion(0,0,0,0));
+			Vector3 startPosition = new Vector3(player.transform.position.x,player.transform.position.y, player.transform.position.z + range);
+			Object enemy = Instantiate(enemyPrefab, startPosition + Random.onUnitSphere * range, new Quaternion(0,0,0,0));
+			enemies.Add((GameObject)enemy);
+			Debug.Log("added! " + enemies.Count);
 		}
 	}
 }

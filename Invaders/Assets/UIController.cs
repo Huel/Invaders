@@ -12,7 +12,6 @@ public class UIController : MonoBehaviour {
 	void Start () 
 	{
 		messageText.enabled = false;
-		Debug.Log ("health slider val = " + myGameController.health);
 		healthSlider.value = myGameController.health;
 		healthSlider.maxValue = myGameController.health;
 	}
@@ -56,5 +55,9 @@ public class UIController : MonoBehaviour {
 	{
 		scoreText.text = "Score: " + myGameController.score;
 		healthSlider.value = myGameController.health;
+	}
+
+	public void IncomingWarning()
+	{
 	}
 }

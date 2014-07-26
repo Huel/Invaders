@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour {
 	{
 		gameState = 1;
 		score = 0;	
-		health = 2;
+		health = 20;
 	}
 	
 	void Update () 

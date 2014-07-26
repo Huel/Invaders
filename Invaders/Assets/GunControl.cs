@@ -22,7 +22,8 @@ public class GunControl : MonoBehaviour {
 				if(hit.collider.gameObject.tag == "enemy")
 				{
 					myEnemySpawner.enemyCount -=1;
-					Debug.Log("BOOM");
+					myEnemySpawner.enemies.Remove(hit.collider.gameObject);
+					Debug.Log("removed! " + myEnemySpawner.enemies.Count);
 					Destroy(hit.collider.gameObject);
 					myGameController.score += 100;
 				}

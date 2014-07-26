@@ -26,9 +26,9 @@ public class Enemy : MonoBehaviour {
 		{
 			myGameController.health -= 1;	
 			myEnemySpawner.enemyCount -=1;
+			myEnemySpawner.enemies.Remove(this.gameObject);
+			Debug.Log("removed! " + myEnemySpawner.enemies.Count);
 			Destroy(this.gameObject);
-			Debug.Log("OUCH!");
-
 		}
 	}
 }
