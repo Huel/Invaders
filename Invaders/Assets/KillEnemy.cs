@@ -11,7 +11,6 @@ public class KillEnemy : MonoBehaviour
     void Awake()
     {
         _renderer = GetComponent<SpriteRenderer>();
-        Kill();
     }
 
     public void Kill()
