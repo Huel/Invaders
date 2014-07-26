@@ -5,9 +5,11 @@ public class GunControl : MonoBehaviour {
 
 	public Camera myCam;
 	public GameController myGameController;
+	public EnemySpawner myEnemySpawner;
 
 	void Start () 
 	{
+		myEnemySpawner = GameObject.FindGameObjectWithTag ("EnemySpawner").GetComponent<EnemySpawner>();
 	}
 	
 	void Update () 
@@ -19,6 +21,7 @@ public class GunControl : MonoBehaviour {
 			{
 				if(hit.collider.gameObject.tag == "enemy")
 				{
+					myEnemySpawner.enemyCount -=1;
 					Debug.Log("BOOM");
 					Destroy(hit.collider.gameObject);
 					myGameController.score += 100;

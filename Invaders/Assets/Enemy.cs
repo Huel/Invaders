@@ -5,8 +5,13 @@ public class Enemy : MonoBehaviour {
 
 	public GameObject player;
 	public GameController myGameController;
+	public EnemySpawner myEnemySpawner;
 
-	void Start () {
+	void Awake () 
+	{
+		player = GameObject.FindGameObjectWithTag ("Player");
+		myGameController = GameObject.FindGameObjectWithTag ("GameController").GetComponent<GameController>();
+		myEnemySpawner = GameObject.FindGameObjectWithTag ("EnemySpawner").GetComponent<EnemySpawner>();
 	}
 	
 	void Update () 
@@ -20,6 +25,7 @@ public class Enemy : MonoBehaviour {
 		if (collider.gameObject.tag == "Player")
 		{
 			myGameController.health -= 1;	
+			myEnemySpawner.enemyCount -=1;
 			Destroy(this.gameObject);
 			Debug.Log("OUCH!");
 		}
