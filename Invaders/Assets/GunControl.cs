@@ -23,7 +23,7 @@ public class GunControl : MonoBehaviour {
 				{
 					myEnemySpawner.enemyCount -=1;
 					myEnemySpawner.enemies.Remove(hit.collider.gameObject);
-					Destroy(hit.collider.gameObject);
+					hit.collider.GetComponent<KillEnemy>().Kill();
 					myGameController.score += 100;
 				}
 			}

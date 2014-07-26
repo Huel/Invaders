@@ -5,10 +5,13 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour {
 	
 	public GameController myGameController;
+	public GameObject myPlayer;
 	public EnemySpawner myEnemySpawner;
 	public Text scoreText;
 	public Text messageText;
 	public Slider healthSlider;
+	public Image incomingArrow;
+
 
 	void Start () 
 	{
@@ -58,13 +61,27 @@ public class UIController : MonoBehaviour {
 		healthSlider.value = myGameController.health;
 
 		//arrow
-
+		Vector3 nearest = Vector3.zero;
 		foreach (GameObject enemy in myEnemySpawner.enemies)
 		{
+			Vector3 aDistance = enemy.transform.position -  incomingArrow.transform.position;
+
+			if(nearest == Vector3.zero 
+			   || aDistance.magnitude < nearest.magnitude)
+			{
+				nearest = aDistance;
+			}
 		}
+		if (nearest == Vector3.zero)
+						nearest = Vector3.right;
+		//IncomingWarning (nearest);
 	}
 
-	public void IncomingWarning()
+	public void IncomingWarning(Vector3 direction)
 	{
+
+		float rot = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+		incomingArrow.rectTransform.localEulerAngles= new Vector3(0f, 0f, rot-90f);
+
 	}
 }

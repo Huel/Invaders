@@ -22,15 +22,14 @@ public class KillEnemy : MonoBehaviour
 
     void Update()
     {
-        if (_renderer.color.a > 0)
-        {
-            Color color = _renderer.color;
-            color.a -= Time.deltaTime*1f;
-            _renderer.color = color;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+		if (_kill) {
+						if (_renderer.color.a > 0) {
+								Color color = _renderer.color;
+								color.a -= Time.deltaTime * 1f;
+								_renderer.color = color;
+						} else {
+								Destroy (gameObject);
+						}
+				}
     }
 }

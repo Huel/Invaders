@@ -104,7 +104,9 @@ MonoBehaviour:
   maxCount: 0
   spawnRate: 0
   range: 0
-  enemyPrefab: {fileID: 100000, guid: 0dcfc507df8a5b349a66325b0498faa0, type: 2}
+  enemyPrefab1: {fileID: 100000, guid: 0dcfc507df8a5b349a66325b0498faa0, type: 2}
+  enemyPrefab2: {fileID: 100000, guid: 9988ffbb29d34a543abefa3b803ed398, type: 2}
+  enemyPrefab3: {fileID: 100000, guid: 04f2815dde5c77f449a16cf4cc7c8e16, type: 2}
   player: {fileID: 1798411476}
   enemyCount: 0
   enemies: []
@@ -425,9 +427,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myGameController: {fileID: 1442158660}
+  myPlayer: {fileID: 1798411476}
+  myEnemySpawner: {fileID: 26871756}
   scoreText: {fileID: 2050408875}
   messageText: {fileID: 1761810363}
   healthSlider: {fileID: 1259841205}
+  incomingArrow: {fileID: 1196833172}
 --- !u!1 &996106800
 GameObject:
   m_ObjectHideFlags: 0
