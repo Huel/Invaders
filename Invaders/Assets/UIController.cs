@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour {
 	
 	public GameController myGameController;
+	public EnemySpawner myEnemySpawner;
 	public Text scoreText;
 	public Text messageText;
 	public Slider healthSlider;
@@ -55,6 +56,12 @@ public class UIController : MonoBehaviour {
 	{
 		scoreText.text = "Score: " + myGameController.score;
 		healthSlider.value = myGameController.health;
+
+		//arrow
+
+		foreach (GameObject enemy in myEnemySpawner.enemies)
+		{
+		}
 	}
 
 	public void IncomingWarning()

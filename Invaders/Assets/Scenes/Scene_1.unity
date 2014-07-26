@@ -104,9 +104,10 @@ MonoBehaviour:
   maxCount: 0
   spawnRate: 0
   range: 0
-  enemyPrefab: {fileID: 100000, guid: c524f82641b3d4176a7430e9f650f576, type: 2}
+  enemyPrefab: {fileID: 100000, guid: 0dcfc507df8a5b349a66325b0498faa0, type: 2}
   player: {fileID: 1798411476}
   enemyCount: 0
+  enemies: []
 --- !u!4 &26871757
 Transform:
   m_ObjectHideFlags: 0

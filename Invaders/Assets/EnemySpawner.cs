@@ -16,8 +16,8 @@ public class EnemySpawner : MonoBehaviour {
 
 	void Start () 
 	{
-		maxCount = 5;
-		spawnRate = 1;
+		maxCount = 10;
+		spawnRate = 5;
 		range = 500;
 		timerCount = 0.0f;
 	}
@@ -32,7 +32,6 @@ public class EnemySpawner : MonoBehaviour {
 			Vector3 startPosition = new Vector3(player.transform.position.x,player.transform.position.y, player.transform.position.z + range);
 			Object enemy = Instantiate(enemyPrefab, startPosition + Random.onUnitSphere * range, new Quaternion(0,0,0,0));
 			enemies.Add((GameObject)enemy);
-			Debug.Log("added! " + enemies.Count);
 		}
 	}
 }

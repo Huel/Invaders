@@ -16,7 +16,6 @@ public class Enemy : MonoBehaviour {
 	
 	void Update () 
 	{
-		this.transform.Rotate (new Vector3(1.0f,1.0f,1.0f));
 		this.transform.position = Vector3.Lerp (this.transform.position, player.transform.position, Time.deltaTime/5);
 	}
 
@@ -27,7 +26,6 @@ public class Enemy : MonoBehaviour {
 			myGameController.health -= 1;	
 			myEnemySpawner.enemyCount -=1;
 			myEnemySpawner.enemies.Remove(this.gameObject);
-			Debug.Log("removed! " + myEnemySpawner.enemies.Count);
 			Destroy(this.gameObject);
 		}
 	}
