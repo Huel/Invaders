@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour {
 		totalBulletDur += Time.deltaTime;
 
 		//destroy bullet gameobject after some time
-		if(totalBulletDur > 3)
+		if(totalBulletDur > 5)
 		{
 			Destroy(this.gameObject);
 		}
