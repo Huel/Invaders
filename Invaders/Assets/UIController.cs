@@ -11,6 +11,7 @@ public class UIController : MonoBehaviour {
 	public Text messageText;
 	public Slider healthSlider;
 	public Image incomingArrow;
+    public Transform directionPivot;
 
 
 	void Start () 
@@ -61,26 +62,36 @@ public class UIController : MonoBehaviour {
 		healthSlider.value = myGameController.health;
 
 		//arrow
+		Vector3 nearestEney = Vector3.zero;
 		Vector3 nearest = Vector3.zero;
 		foreach (GameObject enemy in myEnemySpawner.enemies)
 		{
-			Vector3 aDistance = enemy.transform.position -  incomingArrow.transform.position;
 
-			if(nearest == Vector3.zero 
-			   || aDistance.magnitude < nearest.magnitude)
-			{
-				nearest = aDistance;
+            if (nearestEney == Vector3.zero
+               || (directionPivot.position - enemy.transform.position).magnitude < (directionPivot.position - nearestEney).magnitude)
+            {
+                nearestEney = enemy.transform.position;
+                nearest = enemy.transform.position - incomingArrow.transform.transform.position;
+                
 			}
 		}
-		if (nearest == Vector3.zero)
-						nearest = Vector3.right;
-		//IncomingWarning (nearest);
+        Debug.DrawLine(directionPivot.position, incomingArrow.transform.transform.position + nearest);
+        Debug.DrawLine(directionPivot.position, incomingArrow.transform.transform.position);
+        Debug.DrawLine(incomingArrow.transform.position, incomingArrow.transform.transform.position + nearest);
+
+        IncomingWarning(nearest);
+		
 	}
 
 	public void IncomingWarning(Vector3 direction)
 	{
-
+        direction = transform.InverseTransformDirection(direction);
 		float rot = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+	    float dir = Vector3.Dot(Vector3.forward, direction.normalized);
+	    Color color = incomingArrow.color;
+	    color.a = Mathf.Log(dir, 0.5f);
+        Debug.Log(color.a);
+	    incomingArrow.color = color;
 		incomingArrow.rectTransform.localEulerAngles= new Vector3(0f, 0f, rot-90f);
 
 	}
