@@ -89,7 +89,15 @@ public class UIController : MonoBehaviour {
 		float rot = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 	    float dir = Vector3.Dot(Vector3.forward, direction.normalized);
 	    Color color = incomingArrow.color;
-	    color.a = Mathf.Log(dir, 0.5f);
+	    if (dir < 0.1)
+	    {
+	        color.a = 1f;
+	    }
+	    else
+	    {
+            color.a = Mathf.Log(dir, 0.5f);
+	    }
+	    
         Debug.Log(color.a);
 	    incomingArrow.color = color;
 		incomingArrow.rectTransform.localEulerAngles= new Vector3(0f, 0f, rot-90f);
