@@ -18,7 +18,6 @@ public class GunControl : MonoBehaviour {
 	{
 		if(Input.GetButtonDown("Fire1"))
 		{
-			GameObject forwardDir = GameObject.FindGameObjectWithTag("ForwardDir");
 			Vector3 shootPosLeft = myCam.transform.position+ myCam.transform.right * -1;
 			Vector3 shootPosRight = myCam.transform.position+ myCam.transform.right * 1;
 			GameObject bulletLeft = (GameObject)Instantiate(myBullet, shootPosLeft,myCam.transform.rotation);

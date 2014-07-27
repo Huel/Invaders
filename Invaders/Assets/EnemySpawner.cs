@@ -22,7 +22,7 @@ public class EnemySpawner : MonoBehaviour {
 	{
 		maxCount = 50;
 		spawnRate = 2.0f;
-		range = 750;
+		range = 600;
 		timerCount = 0.0f;
 		enemyType = 0;
 	}
@@ -34,7 +34,7 @@ public class EnemySpawner : MonoBehaviour {
 
 		float realSpawnRate = Mathf.Max (0.25f, spawnRate);
 
-		if (timerCount > spawnRate && enemyCount < maxCount ) 
+		if (timerCount > realSpawnRate && enemyCount < maxCount ) 
 		{
 			timerCount = 0;
 			enemyCount ++;

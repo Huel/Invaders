@@ -399,7 +399,8 @@ Prefab:
       propertyPath: m_TagString
       value: ForwardDir
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8100000, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
   m_RootGameObject: {fileID: 1798411476}
   m_IsPrefabParent: 0
@@ -491,7 +492,7 @@ AudioSource:
   m_GameObject: {fileID: 351996371}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: cc8c5fb637dfe4eea8d3da5850b68611, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c08d7523f879049a6a23c3e991fef3d9, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -768,7 +769,6 @@ GameObject:
   - 4: {fileID: 996106801}
   - 20: {fileID: 996106806}
   - 124: {fileID: 996106805}
-  - 81: {fileID: 996106804}
   - 114: {fileID: 996106803}
   - 114: {fileID: 996106802}
   m_Layer: 0
@@ -831,14 +831,6 @@ MonoBehaviour:
   NeckPosition: {x: 0, y: .600000024, z: 0}
   EyePosition: {x: 0, y: .150000006, z: .0900000036}
   RightEye: 1
---- !u!81 &996106804
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8100000, guid: ce816f2e6abb0504092c23ed9b970dfd,
-    type: 2}
-  m_PrefabInternal: {fileID: 282618236}
-  m_GameObject: {fileID: 996106800}
-  m_Enabled: 1
 --- !u!124 &996106805
 Behaviour:
   m_ObjectHideFlags: 0
@@ -1195,6 +1187,7 @@ MonoBehaviour:
   health: 0
   gameState: 0
   hitFeedback: {fileID: 351996373}
+  gameOverAudio: {fileID: 0}
 --- !u!4 &1442158661
 Transform:
   m_ObjectHideFlags: 0
@@ -1213,11 +1206,11 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1442158659}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 55e387bbc23f34f3781ee7bd0c063bc6, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: .300000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
