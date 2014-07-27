@@ -29,6 +29,9 @@ public class Bullet : MonoBehaviour {
 	{
 		if (collider.gameObject.tag == "enemy")
 		{
+			KillEnemy killEnemy = collider.GetComponent<KillEnemy>();
+			if(!killEnemy.kill)
+				myEnemySpawner.audio.Play();
 			myEnemySpawner.enemyCount -=1;
 			myEnemySpawner.enemies.Remove(collider.gameObject);
 			myGameController.score += 100;

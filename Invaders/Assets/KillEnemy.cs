@@ -6,7 +6,7 @@ public class KillEnemy : MonoBehaviour
     public GameObject Particles;
 
     private SpriteRenderer _renderer;
-    private bool _kill;
+    public bool kill;
 
     void Awake()
     {
@@ -17,12 +17,12 @@ public class KillEnemy : MonoBehaviour
     {
         Particles.transform.parent = null;
         Particles.SetActive(true);
-        _kill = true;
+        kill = true;
     }
 
     void Update()
     {
-		if (_kill) {
+		if (kill) {
 						if (_renderer.color.a > 0) {
 								Color color = _renderer.color;
 								color.a -= Time.deltaTime * 1f;

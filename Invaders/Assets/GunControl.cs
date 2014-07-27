@@ -7,6 +7,7 @@ public class GunControl : MonoBehaviour {
 	public GameController myGameController;
 	public EnemySpawner myEnemySpawner;
 	public GameObject myBullet;
+	public GameObject player;
 
 	void Start () 
 	{
@@ -18,11 +19,17 @@ public class GunControl : MonoBehaviour {
 		if(Input.GetButtonDown("Fire1"))
 		{
 			GameObject forwardDir = GameObject.FindGameObjectWithTag("ForwardDir");
-			Vector3 shootPos = myCam.transform.position; //TODO: offet and alter position
-			GameObject bullet = (GameObject)Instantiate(myBullet, shootPos,myCam.transform.rotation);
-			Vector3 point = myCam.transform.position + myCam.transform.forward;
-			bullet.transform.LookAt(point);
-			bullet.rigidbody.AddForce(bullet.transform.forward * 1000);
+			Vector3 shootPosLeft = myCam.transform.position+ myCam.transform.right * -1;
+			Vector3 shootPosRight = myCam.transform.position+ myCam.transform.right * 1;
+			GameObject bulletLeft = (GameObject)Instantiate(myBullet, shootPosLeft,myCam.transform.rotation);
+			GameObject bulletRight = (GameObject)Instantiate(myBullet, shootPosRight,myCam.transform.rotation);
+			Vector3 point = myCam.transform.position + myCam.transform.forward * 1000;
+			bulletRight.transform.LookAt(point);
+			bulletRight.rigidbody.AddForce(bulletRight.transform.forward * 15000);
+			bulletLeft.transform.LookAt(point);
+			bulletLeft.rigidbody.AddForce(bulletRight.transform.forward * 15000);
+
+			player.audio.Play();
 			
 			//RaycastHit hit;
 			/*if(Physics.Raycast(myCam.transform.position, myCam.transform.forward,out hit))
