@@ -15,15 +15,17 @@ public class GunControl : MonoBehaviour {
 	
 	void Update () 
 	{
-		RaycastHit hit;
 		if(Input.GetButtonDown("Fire1"))
 		{
-			//GameObject bullet = (GameObject)Instantiate(myBullet,myCam.transform.position,myCam.transform.rotation);
-			//Vector3 point = myCam.transform.position + myCam.transform.forward;
-			//bullet.transform.LookAt(point);
-			//bullet.rigidbody.AddForce(bullet.transform.forward * 1000);
-
-			if(Physics.Raycast(myCam.transform.position, myCam.transform.forward,out hit))
+			GameObject forwardDir = GameObject.FindGameObjectWithTag("ForwardDir");
+			Vector3 shootPos = myCam.transform.position; //TODO: offet and alter position
+			GameObject bullet = (GameObject)Instantiate(myBullet, shootPos,myCam.transform.rotation);
+			Vector3 point = myCam.transform.position + myCam.transform.forward;
+			bullet.transform.LookAt(point);
+			bullet.rigidbody.AddForce(bullet.transform.forward * 1000);
+			
+			//RaycastHit hit;
+			/*if(Physics.Raycast(myCam.transform.position, myCam.transform.forward,out hit))
 			{
 				if(hit.collider.gameObject.tag == "enemy")
 				{
@@ -32,7 +34,7 @@ public class GunControl : MonoBehaviour {
 					hit.collider.GetComponent<KillEnemy>().Kill();
 					myGameController.score += 100;
 				}
-			}
+			}*/
 		}
 	}
 }

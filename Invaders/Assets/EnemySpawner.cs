@@ -33,7 +33,6 @@ public class EnemySpawner : MonoBehaviour {
 		spawnRate -= 0.01f * Time.deltaTime;
 
 		float realSpawnRate = Mathf.Max (0.25f, spawnRate);
-		Debug.Log ("spawnRate: " + spawnRate + ", realSpawnRate: " + realSpawnRate);
 
 		if (timerCount > spawnRate && enemyCount < maxCount ) 
 		{

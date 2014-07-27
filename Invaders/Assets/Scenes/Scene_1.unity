@@ -336,6 +336,10 @@ Prefab:
       propertyPath: UseCameraTexture
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
+      propertyPath: m_TagString
+      value: ForwardDir
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
   m_RootGameObject: {fileID: 1798411476}
@@ -490,7 +494,7 @@ GameObject:
   - 4: {fileID: 783235258}
   m_Layer: 0
   m_Name: ForwardDirection
-  m_TagString: Untagged
+  m_TagString: ForwardDir
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -947,7 +951,7 @@ MonoBehaviour:
   myCam: {fileID: 1239387793}
   myGameController: {fileID: 1442158660}
   myEnemySpawner: {fileID: 26871756}
-  myBullet: {fileID: 100000, guid: 069912efd878b4df9b18ad32a001acb6, type: 2}
+  myBullet: {fileID: 100000, guid: 57e0fe57f836f4598b307a95280dcd90, type: 2}
 --- !u!1 &1259841204
 GameObject:
   m_ObjectHideFlags: 0
