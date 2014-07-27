@@ -4,11 +4,8 @@ using UnityEngine.UI;
 public class HitFeedback : MonoBehaviour
 {
 
-    private Image _image;
-    void Awake()
-    {
-        _image = GetComponent<Image>();
-    }
+    public Image _image;
+
 
     public void Hit()
     {

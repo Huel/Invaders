@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class EnemySpawner : MonoBehaviour {
 
 	public int maxCount; 	// max enemies spawned by spawner
-	public int spawnRate; 	//spawns in sec
+	public float spawnRate; 	//spawns in sec
 	public int range;		// positional range
 	public GameObject enemyPrefab1;
 	public GameObject enemyPrefab2;
@@ -20,9 +20,9 @@ public class EnemySpawner : MonoBehaviour {
 
 	void Start () 
 	{
-		maxCount = 10;
-		spawnRate = 2;
-		range = 500;
+		maxCount = 50;
+		spawnRate = 2.0f;
+		range = 750;
 		timerCount = 0.0f;
 		enemyType = 0;
 	}
@@ -30,6 +30,11 @@ public class EnemySpawner : MonoBehaviour {
 	void Update ()
 	{
 		timerCount += Time.deltaTime;
+		spawnRate -= 0.01f * Time.deltaTime;
+
+		float realSpawnRate = Mathf.Max (0.25f, spawnRate);
+		Debug.Log ("spawnRate: " + spawnRate + ", realSpawnRate: " + realSpawnRate);
+
 		if (timerCount > spawnRate && enemyCount < maxCount ) 
 		{
 			timerCount = 0;
